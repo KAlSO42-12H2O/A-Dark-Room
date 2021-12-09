@@ -1,4 +1,12 @@
-# ADR
+# How to use
+
+In control.cpp, if you want to enter operator `A1`, first enter 'A', then enter number '1'. 
+
+# Previous Versions
+
+##### V0.0.0.1.1
+
+Small fix.
 
 #### V0.0.0.1
 
@@ -16,4 +24,4 @@ New operation.
 
 Start the game.
 
-Add `run.cpp`
+Add `ADR.cpp`
