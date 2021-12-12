@@ -10,7 +10,11 @@ After about 5secs, run control.cpp.
 
 In control.cpp, if you want to enter operator `A1`, first enter 'A', then enter number '1'.
 
-The game will automatically produce 3 files. DON'T TOUCH THEM.
+The game will automatically produce 3 files: `nano1` `nano2` `nano3`. DON'T TOUCH THEM.
+
+ADR.cpp: 50Hz
+
+control.cpp: 50Hz
 
 # Previous Versions
 
