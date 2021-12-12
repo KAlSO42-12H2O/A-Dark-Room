@@ -4,7 +4,13 @@ MPL
 
 # How to use
 
-In control.cpp, if you want to enter operator `A1`, first enter 'A', then enter number '1'. 
+First, run ADR.cpp.
+
+After about 5secs, run control.cpp.
+
+In control.cpp, if you want to enter operator `A1`, first enter 'A', then enter number '1'.
+
+The game will automatically produce 3 files. DON'T TOUCH THEM.
 
 # Previous Versions
 
