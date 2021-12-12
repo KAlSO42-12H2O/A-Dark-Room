@@ -24,7 +24,7 @@ int main()
 	MAIN:
 	system("cls");
 	printf("---- materials -----\n");
-	fi.open("nano3");
+	fi.open("nona3");
 	int n;
 	fi>>n;
 	printf("n=%d\n",n);
