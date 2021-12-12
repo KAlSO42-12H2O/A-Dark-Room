@@ -1,3 +1,7 @@
+# License
+
+MPL
+
 # How to use
 
 In control.cpp, if you want to enter operator `A1`, first enter 'A', then enter number '1'. 
