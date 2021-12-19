@@ -18,6 +18,20 @@ control.cpp: 50Hz
 
 # Previous Versions
 
+### V0.0.1
+
+Rename run.cpp
+
+Add display.cpp
+
+Add 2 materials
+
+Add 2 operators
+
+Add a scene
+
+Small fix.
+
 ##### V0.0.0.1.1
 
 Small fix.
