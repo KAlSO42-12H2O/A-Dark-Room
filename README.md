@@ -4,17 +4,19 @@ MPL
 
 # How to use
 
-First, run ADR.cpp.
+First, run run.cpp.
 
 After about 5secs, run control.cpp.
 
+Then, run display.cpp.
+
 In control.cpp, if you want to enter operator `A1`, first enter 'A', then enter number '1'.
 
-The game will automatically produce 3 files: `nano1` `nano2` `nano3`. DON'T TOUCH THEM.
+The game will automatically produce 4 files: `nano1` `nano2` `nano3` `nano4`. DON'T TOUCH THEM.
 
-ADR.cpp: 50Hz
+run.cpp: 2Hz
 
-control.cpp: 50Hz
+display.cpp: 0.2Hz
 
 # Previous Versions
 
