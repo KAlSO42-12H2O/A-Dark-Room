@@ -4,8 +4,6 @@ MPL
 
 # How to use
 
-## There are bugs to be fixed.
-
 First, run run.cpp.
 
 After about 5secs, run control.cpp.
