@@ -55,10 +55,11 @@ int main()
 	printf("Burn some wood.\n");
 	Sleep(1000);
 	num[1]=8;
-	string op;
+	string op="NaN";
 	int ttt;
 	while(1)
 	{
+		Sleep(500);
 		fo.open("nona3");
 		fo<<cntc<<endl;
 		for(int i=1;i<=cntc;i++)
@@ -70,15 +71,22 @@ int main()
 		fi.open("nona1");
 		fi>>op;
 		fi.close();
-		fi.open("nona2");
+		/*fi.open("nona2");
 		fi>>ttt;
 //		cout<<op<<' '<<ttt<<endl;
-		if(!ttt) continue;
-		fo.open("nona2");
-		fo<<0;
+		
+		fi.close();*/
+
+		if(op=="NaN") continue;
+//		Sleep(500);
+		
+		fo.open("nona1");
+		fo<<"NaN";
 		fo.close();
+		
 //		printf("1 - Burn Wood. Cost: Wood x1\n");
 //		scanf("%d",&op);
+//		cout<<"op="<<op<<endl;
 		if(op=="A1")
 		{
 			if((clock()-lst[op])/CLOCKS_PER_SEC<3.0)
@@ -116,7 +124,7 @@ int main()
 			cntc=3;
 		}
 		scene_unlock();
-		Sleep(500);
+//		Sleep(500);
 	}
 	return 0;
 }
