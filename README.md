@@ -16,9 +16,15 @@ The game will automatically produce 4 files: `nano1` `nano2` `nano3` `nano4`. DO
 
 run.cpp: 2Hz
 
-display.cpp: 0.2Hz
+display.cpp: 0.33Hz
 
 # Previous Versions
+
+#### V0.0.1.1
+
+Fixed big bugs in V0.0.1.
+
+Changed `display.cpp` from 0.2Hz to 0.33Hz.
 
 ### V0.0.1
 
