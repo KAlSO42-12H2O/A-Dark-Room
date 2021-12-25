@@ -35,7 +35,7 @@ int main()
 		cout<<name[i]<<" - "<<ta<<endl;
 	}
 	fi.close();
-    Sleep(5000);
+    Sleep(3000);
 	goto MAIN;
 	return 0;
 }

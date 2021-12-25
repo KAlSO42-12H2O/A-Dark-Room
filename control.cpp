@@ -53,12 +53,15 @@ int main()
 		}
 		else
 		{
+//			fo.open("nona2");
+//			fo<<1;
 			fo.open("nona1");
 			fo<<'A'<<ta;
 			fo.close();
-			fo.open("nona2");
-			fo<<1;
-			fo.close();
+			
+//			fo.close();
+			
+			
 			goto MAIN;
 		}
 	}
@@ -83,13 +86,13 @@ int main()
 			}
 			if(ta==1)
 				ok[3]=0;
-			
+//			fo.open("nona2");
+//			fo<<1;
 			fo.open("nona1");
 			fo<<'X'<<ta;
 			fo.close();
-			fo.open("nona2");
-			fo<<1;
-			fo.close();
+			
+//			fo.close();
 			goto MAIN;
 		}
 	}
