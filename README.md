@@ -18,6 +18,14 @@ run.cpp: 2Hz
 
 display.cpp: 0.33Hz
 
+# What's new in V0.0.1.2
+
+More operations and materials.
+
+# Reference
+
+- A-Dark-Room in xd0.com/main/index.html
+
 # Previous Versions
 
 #### V0.0.1.2
