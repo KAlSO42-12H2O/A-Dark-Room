@@ -4,11 +4,11 @@ MPL
 
 # How to use
 
-First, run run.cpp.
+First, run `run.cpp`.
 
-After about 5secs, run control.cpp.
+After about 5secs, run `control.cpp`.
 
-Then, run display.cpp.
+Then, run `display.cpp`.
 
 In control.cpp, if you want to enter operator `A1`, first enter 'A', then enter number '1'.
 
@@ -19,6 +19,16 @@ run.cpp: 2Hz
 display.cpp: 0.33Hz
 
 # Previous Versions
+
+#### V0.0.1.2
+
+Add 2 new scenes.
+
+Add 1 material.
+
+Add 1 operation.
+
+Now the game is endless.
 
 #### V0.0.1.1
 
@@ -34,13 +44,13 @@ Add display.cpp
 
 Add 2 materials
 
-Add 2 operators
+Add 2 operations
 
 Add a scene
 
 Small fix.
 
-##### V0.0.0.1.1
+##### V0.0.0.2
 
 Small fix.
 
