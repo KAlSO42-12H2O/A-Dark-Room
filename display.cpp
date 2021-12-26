@@ -12,6 +12,7 @@ void init()
 	name[1]="Wood";
 	name[2]="Charcoal";
 	name[3]="Meat";
+	name[4]="Cooked Meat";
 }
 void display(string s)
 {
