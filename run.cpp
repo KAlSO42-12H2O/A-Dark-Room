@@ -8,17 +8,19 @@ const int mod=1000000007;
 #define charcoal 2
 #define meat 3
 #define cookedmeat 4
-int num[25];
-int cntc=1;
+#define stick 1001
+int num[2005];
+int cntc=1,cntm=0;
 map<string,double> lst;
 int tot_op=1;
+bool ok[1005];
 void scene_unlock()
 {
 	if(tot_op==1)
 	{
 		if(num[wood]<=4)
 		{
-			printf("You are burning out of wood.");
+			printf("You are running out of wood.\n");
 			tot_op=2;
 		}
 	}
@@ -64,36 +66,88 @@ void scene_unlock()
 			tot_op=5;
 		}
 	}
-	/*if(tot_op==5)
+	if(tot_op==5)
 	{
-		if(num[cookedmeat]>=11)
+		if(num[cookedmeat]>=10)
 		{
-			printf("Let's make some tools.")
+			printf("Preparing to get outside!\n");
+			tot_op=6;
 		}
-	}*/
+	}
+	if(tot_op==6)
+	{
+		if(num[stick]>=1)
+		{
+			printf("Time to go away!\n");
+			tot_op=7;
+		}
+	}
+}
+void download()
+{
+	ifstream fi;
+	ofstream fo;
+	fi.open("nona3");
+	fi>>cntc;
+	for(int i=1;i<=cntc;i++)
+		fi>>num[i];
+	fi>>cntm;
+	for(int i=1;i<=cntm;i++)
+		fi>>num[i+1000];
+	fi.close();
+	fi.open("nona2");
+	fi>>tot_op;
+	for(int i=1;i<=tot_op;i++) fi>>ok[i];
+	fi.close();
 }
 int main()
 {
 	srand(time(0));
 	ifstream fi;
 	ofstream fo;
-	printf("The room is freezing.\n");
-	Sleep(5000);
-	printf("Burn some wood.\n");
-	Sleep(1000);
-	num[1]=8;
+	fi.open("nona3");
+	int yy;
+	for(int i=1;i<=1000;i++) ok[i]=1;
+	if(fi>>yy)
+	{
+		printf("Loading data...\n");
+		download();
+		printf("Completed!\n");
+//		fo.open("nona2");
+//		fo<<tot_op<<endl;
+//		for(int i=1;i<=tot_op;i++) fo<<ok[i]<<' ';
+//		fo.close();
+	}
+	else
+	{
+		num[1]=8;
+		tot_op=1;
+		fo.open("nona2");
+		fo<<tot_op<<endl;
+		for(int i=1;i<=tot_op;i++) fo<<ok[i]<<' ';
+		fo.close();
+		printf("The room is freezing.\n");
+		Sleep(5000);
+		printf("Burn some wood.\n");
+		Sleep(1000);
+		
+//		fill(ok,ok+100,true);
+	}
+	fi.close();
 	string op="NaN";
-	int ttt;
+	fo.open("nona3");
+	fo<<cntc<<endl;
+	for(int i=1;i<=cntc;i++)
+		fo<<num[i]<<endl;
+	fo<<cntm<<endl;
+	for(int i=1;i<=cntm;i++)
+		fo<<num[1000+i]<<endl;
+	fo.close();
 	while(1)
 	{
-		Sleep(500);
-		fo.open("nona3");
-		fo<<cntc<<endl;
-		for(int i=1;i<=cntc;i++)
-			fo<<num[i]<<endl;
-		fo.close();
-		fo.open("nona4");
-		fo<<tot_op;
+		fo.open("nona2");
+		fo<<tot_op<<endl;
+		for(int i=1;i<=tot_op;i++) fo<<ok[i]<<' ';
 		fo.close();
 		fi.open("nona1");
 		fi>>op;
@@ -107,9 +161,7 @@ int main()
 		if(op=="NaN") continue;
 //		Sleep(500);
 		
-		fo.open("nona1");
-		fo<<"NaN";
-		fo.close();
+		
 		
 //		printf("1 - Burn Wood. Cost: Wood x1\n");
 //		scanf("%d",&op);
@@ -119,12 +171,12 @@ int main()
 			if((clock()-lst[op])/CLOCKS_PER_SEC<3.0)
 			{
 				printf("Wait %.1f seconds.\n",3.0-(clock()-lst[op])/CLOCKS_PER_SEC);
-				continue;
+				goto CC;
 			}
 			if(num[wood]<1)
 			{
 				printf("Not enough wood.\n");
-				continue;
+				goto CC;
 			}
 			num[wood]-=1;
 			lst[op]=clock();
@@ -144,7 +196,7 @@ int main()
 			if((clock()-lst[op])/CLOCKS_PER_SEC<10.0)
 			{
 				printf("Wait %.1f seconds.\n",10.0-(clock()-lst[op])/CLOCKS_PER_SEC);
-				continue;
+				goto CC;
 			}
 			num[wood]+=10;
 			lst[op]=clock();
@@ -155,12 +207,12 @@ int main()
 			if(num[charcoal]<1)
 			{
 				printf("Not enough charcoal.\n");
-				continue;
+				goto CC;
 			}
 			if(num[meat]<3)
 			{
 				printf("Not enough meat.\n");
-				continue;
+				goto CC;
 			}
 			num[charcoal]-=1;
 			num[meat]-=3;
@@ -185,13 +237,27 @@ int main()
 			if((clock()-lst[op])/CLOCKS_PER_SEC<5.0)
 			{
 				printf("Wait %.1f seconds.\n",5.0-(clock()-lst[op])/CLOCKS_PER_SEC);
-				continue;
+				goto CC;
 			}
 			int yy=rand()%3+3;
 			num[meat]+=yy;
 			lst[op]=clock();
 			printf("You got meat x%d\n",yy);
 		}
+		if(op=="B1")
+		{
+			if(num[wood]<100)
+			{
+				printf("Not enough wood.\n");
+				goto CC;
+			}
+			num[wood]-=100;
+			if(cntm<1) cntm=1;
+			num[stick]++;
+			ok[6]=0;
+			printf("It protects you a little.\n");
+		}
+		
 		if(op=="X1")
 		{
 			printf("You found something black.\n");
@@ -199,9 +265,65 @@ int main()
 			printf("You also found some meat.\n");
 			num[charcoal]+=10;
 			num[meat]+=15;
+			ok[3]=0;
 			cntc=3;
 		}
+		if(op=="Y1")
+		{
+			printf("You now have %d cooked meat.\n",num[cookedmeat]);
+			printf("Are you sure?(Y/N)\n");
+			string ta;
+			cin>>ta;
+			if(ta[0]=='Y')
+			{
+				printf("Take how many cooked meat?\n");
+				int x;
+				while(scanf("%d",&x))
+				{
+					if(x>=0&&x<=num[cookedmeat]) break;
+					printf("Invalid number.\n");
+				}
+				num[cookedmeat]-=x;
+				fo.open("nona4");
+				fo<<1<<' '<<x;
+				fo.close();
+				system("TTT.exe");
+				fi.open("nona4");
+				int ta;
+				fi>>ta;
+				fi.close();
+				if(ta)
+				{
+					printf("You win!\n");
+					fi>>ta;
+					num[cookedmeat]+=ta;
+					ta=rand()%10+1;
+					num[meat]+=ta;
+					printf("You get %d meat.\n",ta);
+					ta=rand()%5+1;
+					num[charcoal]+=ta;
+					printf("You get %d charcoal.\n",ta);
+				}
+				else
+				{
+					printf("You lose!\n");
+				}
+			}
+		}
+		fo.open("nona3");
+		fo<<cntc<<endl;
+		for(int i=1;i<=cntc;i++)
+			fo<<num[i]<<endl;
+		fo<<cntm<<endl;
+		for(int i=1;i<=cntm;i++)
+			fo<<num[1000+i]<<endl;
+		fo.close();
 		scene_unlock();
+		goto CC;
+		CC:
+		fo.open("nona1");
+		fo<<"NaN";
+		fo.close();
 //		Sleep(500);
 	}
 	return 0;
