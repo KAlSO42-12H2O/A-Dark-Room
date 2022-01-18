@@ -4,6 +4,8 @@ MPL
 
 # How to use
 
+Program TTT.cpp first.(don't run)
+
 First, run `run.cpp`.
 
 After about 5secs, run `control.cpp`.
@@ -14,10 +16,7 @@ In control.cpp, if you want to enter operator `A1`, first enter 'A', then enter 
 
 The game will automatically produce 4 files: `nano1` `nano2` `nano3` `nano4`. DON'T TOUCH THEM.
 
-run.cpp: 2Hz
-
-display.cpp: 0.33Hz
-
+**Data saving:** Run the files again in the same folder.
 
 # Reference
 
@@ -30,6 +29,8 @@ display.cpp: 0.33Hz
 Data saving
 
 Add 5 scenes
+
+Bugs remaining.
 
 #### V0.0.1.2
 
